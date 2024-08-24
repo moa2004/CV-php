@@ -3,152 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic CV Template</title>
+    <title>Moamen Mohammed - CV</title>
     <style>
-       body {
-    font-family: 'cursive', sans-serif;
-    background: linear-gradient(to right, #ffffff, #e0e0e0);
-    color: #333;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ffffff, #e0e0e0);
+            color: #333;
+            scroll-behavior: smooth;
+        }
 
-.cv-container {
-    background: #fff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    max-width: 900px;
-    width: 100%;
-    animation: fadeInUp 0.8s ease;
-}
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: black;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
 
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+        .navbar a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
 
-.header {
-    text-align: center;
-    border-bottom: 1px solid #aaa;
-    padding-bottom: 15px;
-    margin-bottom: 35px;
-}
+        .navbar a:hover {
+            background-color: #0056b3;
+        }
 
-.header h1 {
-    margin: 0;
-    font-size: 2.6em;
-    color: #444;
-    font-weight: bold;
-    animation: fadeIn 1s ease;
-}
+        .cv-container {
+            padding: 100px 20px 80px; 
+            max-width: 900px;
+            margin: auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
 
-.header h2 {
-    margin: 5px 0;
-    font-size: 1.4em;
-    color: #666;
-    font-weight: normal;
-    animation: fadeIn 1.2s ease;
-}
+        .cv-container:hover {
+            transform: translateY(-5px);
+            opacity: 0.95;
+        }
 
-.section {
-    margin-bottom: 30px;
-}
+        .section {
+            margin-bottom: 40px;
+        }
 
-.section h3 {
-    border-left: 4px solid #4a90e2;
-    padding-left: 15px;
-    color: #4a90e2;
-    font-size: 1.5em;
-    margin-bottom: 15px;
-    font-weight: bold;
-    animation: slideInLeft 0.8s ease;
-}
+        .section h2 {
+            font-size: 1.8em;
+            color: #007bff;
+            margin-bottom: 15px;
+            border-left: 4px solid #007bff;
+            padding-left: 10px;
+        }
 
-.section ul {
-    list-style: none;
-    padding: 0;
-}
+        .section p, .section ul {
+            margin: 10px 0;
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
 
-.section li {
-    margin-bottom: 8px;
-    font-size: 1.1em;
-    color: #555;
-}
+        .section ul {
+            padding-left: 20px;
+        }
 
-.contact-info p {
-    margin: 5px 0;
-    font-weight: normal;
-    font-size: 1.1em;
-    color: #444;
-}
+        .section ul li {
+            margin-bottom: 5px;
+        }
 
-.profile p {
-    font-size: 1.2em;
-    color: #555;
-    line-height: 1.8;
-    margin-top: 10px;
-}
+        @media (max-width: 600px) {
+            .navbar a {
+                display: block;
+                padding: 10px;
+            }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+            .section h2 {
+                font-size: 1.4em;
+            }
 
-@keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-30px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@media (max-width: 600px) {
-    .cv-container {
-        padding: 25px;
-    }
-
-    .header h1 {
-        font-size: 2.2em;
-    }
-
-    .header h2 {
-        font-size: 1.2em;
-    }
-
-    .section h3 {
-        font-size: 1.3em;
-    }
-
-    .section ul, .profile p {
-        font-size: 1em;
-    }
-}
-
-
+            .section p, .section ul {
+                font-size: 1em;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
+     - Navbar -->
+    <div class="navbar">
+        <a href="#contact">Contact</a>
+        <a href="#profile">Profile</a>
+        <a href="#experience">Experience</a>
+        <a href="#internships">Internships</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#languages">Languages</a>
+        <a href="#hobbies">Hobbies</a>
+    </div>
+
+    <div class="cv-container">
         <?php include 'cv_data.php'; ?>
 
-        <h1><?= $cv_data['name']; ?></h1>
-        <h2><?= $cv_data['title']; ?></h2>
-
-        <div class="contact-info section">
+        <div class="section" id="contact">
+            <h2>Contact Information</h2>
             <p>Email: <?= $cv_data['contact']['email']; ?></p>
             <p>Phone: <?= $cv_data['contact']['phone']; ?></p>
             <p>Location: <?= $cv_data['contact']['location']; ?></p>
         </div>
 
-        <div class="profile section">
+        <div class="section" id="profile">
             <h2>Profile</h2>
             <p><?= $cv_data['profile']; ?></p>
         </div>
 
-        <div class="experience section">
+        <div class="section" id="experience">
             <h2>Experience</h2>
             <?php foreach ($cv_data['experience'] as $experience): ?>
                 <h3><?= $experience['position']; ?> - <?= $experience['company']; ?></h3>
@@ -157,7 +135,16 @@
             <?php endforeach; ?>
         </div>
 
-        <div class="education section">
+        <div class="section" id="internships">
+            <h2>Internships</h2>
+            <?php foreach ($cv_data['internships'] as $internship): ?>
+                <h3><?= $internship['position']; ?> - <?= $internship['company']; ?></h3>
+                <p><em><?= $internship['duration']; ?></em></p>
+                <p><?= $internship['description']; ?></p>
+            <?php endforeach; ?>
+        </div>
+
+        <div class="section" id="education">
             <h2>Education</h2>
             <?php foreach ($cv_data['education'] as $education): ?>
                 <h3><?= $education['degree']; ?> - <?= $education['institution']; ?></h3>
@@ -165,7 +152,7 @@
             <?php endforeach; ?>
         </div>
 
-        <div class="skills section">
+        <div class="section" id="skills">
             <h2>Skills</h2>
             <ul>
                 <?php foreach ($cv_data['skills'] as $skill): ?>
@@ -174,7 +161,25 @@
             </ul>
         </div>
 
-        <div class="languages section">
+        <div class="section" id="projects">
+            <h2>Projects</h2>
+            <?php foreach ($cv_data['projects'] as $project): ?>
+                <h3><?= $project['name']; ?></h3>
+                <p><?= $project['description']; ?></p>
+                <p><em>Technologies used: <?= $project['technologies']; ?></em></p>
+            <?php endforeach; ?>
+        </div>
+
+        <div class="section" id="certifications">
+            <h2>Certifications</h2>
+            <ul>
+                <?php foreach ($cv_data['certifications'] as $certification): ?>
+                    <li><?= $certification; ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+
+        <div class="section" id="languages">
             <h2>Languages</h2>
             <ul>
                 <?php foreach ($cv_data['languages'] as $language): ?>
@@ -183,7 +188,7 @@
             </ul>
         </div>
 
-        <div class="hobbies section">
+        <div class="section" id="hobbies">
             <h2>Hobbies</h2>
             <ul>
                 <?php foreach ($cv_data['hobbies'] as $hobby): ?>
@@ -192,6 +197,10 @@
             </ul>
         </div>
 
+    </div>
+
+    <div class="footer">
+        <p>&copy; <?= date("Y"); ?> Moamen Mohammed. All rights reserved.</p>
     </div>
 
 </body>
